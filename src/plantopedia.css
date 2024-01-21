@@ -1,0 +1,65 @@
+/* Custom StyleSheet */
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+.uu{
+  background-color: red;
+}
+nav .logo {
+  margin-left: 50px;
+}
+.slider{
+  img src=
+}
+
+.slider .btn {
+  margin-top: 20px;
+  padding: 0 50px;
+  border-radius: 1%;
+}
+
+.description {
+  text-align: justify;
+  align-items: center;
+  line-height: 1.8 !important;
+}
+
+.section-follow {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  border-bottom: 1px solid #629e53;
+}
+
+.section-follow i {
+  margin: 5px 10px;
+}
+
+.section-contact {
+  margin-top: 50px;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+  color: #0e240f !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid #22b529 !important;
+  box-shadow: 0 1px 0 0 #1d582b !important;
+}
+
+.input-field input[type]:not([readonly]),
+.input-field input[type]:focus:not([readonly]),
+.input-field textarea:not([readonly]),
+.input-field textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #334534;
+  box-shadow: 0 1px 0 0 #345736;
+}
+
+.input-field input[type]:focus:not([readonly]) + label,
+.input-field textarea:focus:not([readonly]) + label {
+  color: #063108;
+}
