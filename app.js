@@ -3,12 +3,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
+require('dotenv').config();
 
+// const fetch = require('node-fetch');
 
 
 const app = express()
 const path = require('path');
-
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 app.set('views', __dirname + '/views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
@@ -23,6 +25,10 @@ const PORT = 3000;
 app.use('/static', express.static('static'));
 
 
+
+// Access your API key as an environment variable (see "Set up your API key" above)
+// const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 // Middleware for parsing
 app.use(express.urlencoded());
 app.use(
@@ -37,6 +43,21 @@ app.use(
 // declare path on rendering
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+async function run(prompt) {
+    // For text-only input, use the gemini-pro model
+
+    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+  
+    const result = await model.generateContent(prompt);
+
+    const response = await result.response;
+
+    const text = response.text();
+
+    console.log(text);
+    return text;
+  }
 
 // Database Connection
 mongoose.connect(
@@ -74,37 +95,42 @@ app.get('/index.ejs', (req, res)=>{
 //     res.status(200).render('searched.ejs',params);
 // })
 
-
-app.post('/searched.ejs', (req, res)=>{
-
+app.post('/searched.ejs', (req, res) => {
     const itemName = req.body.search;
-    // const params = { "content": con}
-    var result;
     
-    feedModal.find({ name: itemName}).exec()
-    .then(docs => {
-        const params = { "content": docs[0]}
+    feedModal.find({ name: itemName }).exec()
+        .then(async docs => {
+            try {
+                
 
-        res.status(200).render('searched.ejs', params);
-        if (docs.length > 0) {
-            console.log('Item Details:');
-            console.log('Name:', docs[0].name);
-            console.log('carbonFootprint:', docs[0].carbonFootprint);
-            console.log('materialSourcing:', docs[0].materialSourcing);
-            console.log('lifeSpan:', docs[0].lifeSpan);
-            console.log('pollutionGradient:', docs[0].pollutionGradient);
-        } else {
-            console.log('Item not found.');
-        }
+                // var text = "jj";
+                 text=await run("I am subham panda the emperor of darkness");
+                // console.log(text);
+                
+                const params = { "content": docs[0], "text": text };
+                res.status(200).render('searched.ejs', params);
+                
+                if (docs.length > 0) {
+                    console.log('Item Details:');
+                    console.log('Name:', docs[0].name);
+                    console.log('carbonFootprint:', docs[0].carbonFootprint);
+                    console.log('materialSourcing:', docs[0].materialSourcing);
+                    console.log('lifeSpan:', docs[0].lifeSpan);
+                    console.log('pollutionGradient:', docs[0].pollutionGradient);
+                } else {
+                    console.log('Item not found.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).send('Error occurred while generating content');
+            }
+        })
+        .catch(err => {
+            console.error('Error:', err);
+            res.status(500).send('Error occurred while searching for item');
+        });
+});
 
-        
-    })
-    .catch(err => {
-        console.error('Error:', err);
-       
-    });
-
-})
 
 app.get('/form.ejs', (req, res)=>{
     // const con = "This is the best content on the internet so far so use it wisely"
