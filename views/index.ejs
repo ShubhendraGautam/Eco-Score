@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/mainpage.css">
+    <link rel="stylesheet" href="../static/styles/mainpagedusra.css">
+    <title>iEducate - Transforming Online Education</title>
+</head>
+
+<body>
+    <nav class="navbar background h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo"><img src="../static/images/background.jpg" alt="logo"></div>
+            <!-- <li><a href="#">Home</a></li> -->
+            <li><a href="#about">Events</a></li>
+            <li><a href="#services">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="rightNav v-class-resp">
+            <form action="./searched.ejs" method="post">
+            <input type="text" name="search" id="search">
+            <!-- <button ></button> -->
+            <button type="submit" class="btn btn-sm">Search</button>
+        </form>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <section class="background firstSection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="text-big">The Eco-friendly nature </p>
+                <p class="text-small">EcoHub Central, Explore eco-friendly products, earn rewards, and join a community committed to fostering a greener, healthier planet.</p>
+                <div class="buttons">
+                    <button class="btn">Donate us</button>
+                    <button class="btn">Watch Video</button>
+                </div>
+            </div>
+
+            <div class="secondHalf">
+                <img src="../static/images/background.jpg" alt="Laptop Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="paras">
+        <p class="sectionTag text-big">About Eco Score</p>
+        <p class="sectionSubTag text-small">Our comprehensive website meticulously assesses products, utilizing a sophisticated scoring system across four crucial carbon emission dimensions: manufacturing, transportation, usage, and disposal. This holistic approach empowers consumers to make well-informed, eco-conscious decisions, providing a nuanced understanding of a product's environmental impact. By assigning scores in these critical areas, users can easily discern and prioritize eco-friendly options, fostering a sustainable lifestyle and reducing overall carbon footprints. </p>
+        </div>
+        <div class="thumbnail">
+            <img src="../static/images/ecoscore.jpg" alt="laptop image" class="imgFluid">
+        </div>
+    </section>
+
+    <section class="section section-left" id="about">
+        <div class="paras">
+        <p class="sectionTag text-big">Green coins distribution</p>
+        <p class="sectionSubTag text-small">In our commitment to rewarding sustainable choices, users are incentivized through the Green Coins program. By uploading payment receipts for eco-friendly purchases, users accrue Green Coins, which can be redeemed for exclusive gift vouchers. This innovative initiative not only encourages environmentally responsible behavior but also creates a dynamic ecosystem where users actively contribute to a greener planet while enjoying tangible benefits. The Green Coins program promotes a sense of community and shared responsibility.</p>
+        </div>
+        <div class="thumbnail">
+            <img src="../static/images/green-coins.jpg" alt="laptop image" class="imgFluid">
+        </div> 
+    </section>
+    <section class="section" id="services">
+        <div class="paras">
+        <p class="sectionTag text-big">Events and Conferences </p>
+        <p class="sectionSubTag text-small">Beyond online transactions, we extend our commitment to environmental advocacy through a diverse range of events, conferences, and community meet-ups.These gatherings serve as platforms to promote green values and sustainable practices. We place spotlight on individuals who consistently contribute to our platform's growth, recognizing their efforts in showcasing eco-friendly options, sharing valuable insights, and fostering a positive environmental ethos.Through these initiatives, we aim to inspire collective action and celebrate the dedicated contributors actively shaping a more sustainable future.</p>
+        
+        
+        </div>
+        <div class="thumbnail">
+            <img src="../static/images/events.jpg" alt="laptop image" class="imgFluid">
+        </div>
+    </section>
+     
+    
+    <footer class="background">
+        <p class="text-footer">
+            Copyright &copy; 2027 - www.iEducate.com - All rights reserved
+        </p>
+    </footer>
+    <script src="../static/javascript/mainpage.js"></script>
+
+</body>
+
+</html>

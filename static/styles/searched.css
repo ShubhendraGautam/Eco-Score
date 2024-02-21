@@ -1,0 +1,80 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+#search {
+    padding: 10px;
+    font-size: 17px;
+    border: 2px solid grey;
+    border-radius: 9px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 16px;
+}
+
+.product-details {
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-name {
+    font-size: 28px;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.environmental-criteria {
+    font-size: 18px;
+    margin: 5px 0; /* Adjust as needed */
+}
+.mybox{
+    margin: 1rem;
+    
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+#search {
+    width: 35rem;
+    max-width: 800px;
+    padding: 15px;
+    border: 2px solid #4CAF50;
+    border-radius: 3rem;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
